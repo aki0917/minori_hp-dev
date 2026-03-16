@@ -1612,6 +1612,53 @@ body.page-template-page-anniversary .l-footer {
 /* ----------------------------------------
    CTA セクション
    ---------------------------------------- */
+/* ----------------------------------------
+   アンケートセクション
+   ---------------------------------------- */
+.anniv-survey {
+  background: var(--anniv-yellow-light);
+  padding: 64px 20px;
+  text-align: center;
+}
+
+.anniv-survey__inner {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.anniv-survey__lead {
+  font-size: 16px;
+  color: var(--anniv-text);
+  line-height: 1.9;
+  margin: 0 0 12px;
+}
+
+.anniv-survey__time {
+  font-size: 14px;
+  color: var(--anniv-text-light);
+  margin: 0 0 32px;
+}
+
+.anniv-survey__btn {
+  display: inline-block;
+  background: var(--anniv-green-dark);
+  color: var(--anniv-white);
+  font-size: 18px;
+  font-weight: 700;
+  padding: 16px 48px;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.anniv-survey__btn:hover {
+  background: var(--anniv-green);
+  transform: translateY(-2px);
+}
+
+/* ----------------------------------------
+   CTA（終了後）
+   ---------------------------------------- */
 .anniv-cta {
   background: var(--anniv-green-dark);
   padding: 64px 20px;
@@ -1640,6 +1687,13 @@ body.page-template-page-anniversary .l-footer {
 .anniv-cta__date strong {
   font-size: 22px;
   color: var(--anniv-white);
+}
+
+.anniv-cta__text {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0 0 32px;
+  line-height: 1.8;
 }
 
 .anniv-cta__buttons {
@@ -1679,6 +1733,13 @@ body.page-template-page-anniversary .l-footer {
   border: 2px solid var(--anniv-white);
   color: var(--anniv-white);
   backdrop-filter: blur(4px);
+}
+
+.anniv-cta__button--line {
+  background: #06C755;
+  color: var(--anniv-white);
+  font-weight: 800;
+  box-shadow: 0 4px 15px rgba(6, 199, 85, 0.3);
 }
 
 /* ----------------------------------------

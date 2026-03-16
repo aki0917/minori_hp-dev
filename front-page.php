@@ -60,30 +60,23 @@ $template_uri = get_template_directory_uri();
   </div>
 </div>
 
-<!-- 4周年祭 告知バナー（ヒーロー直下） -->
-<?php
-$anniversary_page = get_page_by_path( 'anniversary' );
-$anniversary_url  = $anniversary_page ? get_permalink( $anniversary_page ) : home_url( '/anniversary/' );
-?>
-<a href="<?php echo esc_url( $anniversary_url ); ?>" class="p-anniv-banner" aria-label="4周年祭特設ページへ">
+<!-- イベントアンケート 告知バナー（ヒーロー直下） -->
+<a href="https://forms.gle/uj82TaqbBd11YoVP9" target="_blank" rel="noopener noreferrer" class="p-anniv-banner" aria-label="4周年祭アンケートへ">
   <div class="p-anniv-banner__inner">
     <div class="p-anniv-banner__badge">
-      <span class="p-anniv-banner__badge-num">4</span>
-      <span class="p-anniv-banner__badge-text">周年</span>
+      <span class="p-anniv-banner__badge-num" style="font-size:1.6rem;">📝</span>
     </div>
     <div class="p-anniv-banner__body">
       <p class="p-anniv-banner__title">
         <span class="p-anniv-banner__title-main">みのり花木センター インターパーク店</span>
-        <span class="p-anniv-banner__title-event">4周年祭 開催！</span>
+        <span class="p-anniv-banner__title-event">4周年祭 アンケート実施中</span>
       </p>
       <p class="p-anniv-banner__meta">
-        <span class="p-anniv-banner__date">2026年 3/14<small>(土)</small>・15<small>(日)</small></span>
-        <span class="p-anniv-banner__sep">｜</span>
-        <span class="p-anniv-banner__highlights">展示会・イベント・特売</span>
+        <span class="p-anniv-banner__highlights">ご来場の感想をお聞かせください（約3分）</span>
       </p>
     </div>
     <span class="p-anniv-banner__cta">
-      詳しく見る<span class="p-anniv-banner__cta-arrow" aria-hidden="true">→</span>
+      回答する<span class="p-anniv-banner__cta-arrow" aria-hidden="true">→</span>
     </span>
   </div>
 </a>
@@ -610,16 +603,16 @@ $anniversary_url  = $anniversary_page ? get_permalink( $anniversary_page ) : hom
 
 <?php minorihp_set_faq_data( $faqs ); ?>
 
-<!-- 4周年祭 フローティングバナー（画面下部固定） -->
+<!-- イベントアンケート フローティングバナー（画面下部固定） -->
 <div class="p-anniv-float" id="annivFloat">
   <button class="p-anniv-float__close" id="annivFloatClose" type="button" aria-label="バナーを閉じる">&times;</button>
-  <a href="<?php echo esc_url( $anniversary_url ); ?>" class="p-anniv-float__link">
-    <span class="p-anniv-float__icon" aria-hidden="true">🎉</span>
+  <a href="https://forms.gle/uj82TaqbBd11YoVP9" target="_blank" rel="noopener noreferrer" class="p-anniv-float__link">
+    <span class="p-anniv-float__icon" aria-hidden="true">📝</span>
     <span class="p-anniv-float__text">
-      <strong>みのり花木センター インターパーク店4周年祭</strong>
-      <span>3/14(土)・15(日) 開催</span>
+      <strong>4周年祭 アンケート実施中</strong>
+      <span>ご来場の感想をお聞かせください（約3分）</span>
     </span>
-    <span class="p-anniv-float__btn">詳細はこちら</span>
+    <span class="p-anniv-float__btn">回答する</span>
   </a>
 </div>
 <script>

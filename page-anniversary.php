@@ -27,6 +27,7 @@ $template_uri = get_template_directory_uri();
       <li class="anniv-nav__item"><a href="#anniv-events" class="anniv-nav__link">イベント</a></li>
       <li class="anniv-nav__item"><a href="#anniv-sales" class="anniv-nav__link">特売情報</a></li>
       <li class="anniv-nav__item"><a href="#anniv-access" class="anniv-nav__link">アクセス</a></li>
+      <li class="anniv-nav__item"><a href="#anniv-survey" class="anniv-nav__link">アンケート</a></li>
     </ul>
   </div>
 </nav>
@@ -543,21 +544,39 @@ $template_uri = get_template_directory_uri();
   </div>
 
   <!-- ============================================
+       アンケート
+       ============================================ -->
+  <section class="anniv-survey" id="anniv-survey">
+    <div class="anniv-survey__inner">
+      <h2 class="anniv-section-title">
+        <span class="anniv-section-title__en">SURVEY</span>
+        <span class="anniv-section-title__ja">アンケートにご協力ください</span>
+      </h2>
+      <p class="anniv-survey__lead">
+        4周年祭にお越しいただき、誠にありがとうございました。<br>
+        イベントのご感想や今後のご要望をお聞かせください。<br>
+        いただいたご意見は、次回イベントの企画に活かしてまいります。
+      </p>
+      <p class="anniv-survey__time">所要時間：約3分</p>
+      <a href="https://forms.gle/uj82TaqbBd11YoVP9" target="_blank" rel="noopener noreferrer" class="anniv-survey__btn">
+        アンケートに回答する
+      </a>
+    </div>
+  </section>
+
+  <!-- ============================================
        CTA（コール トゥ アクション）
        ============================================ -->
   <section class="anniv-cta">
     <div class="anniv-cta__inner">
-      <h2 class="anniv-cta__title">ご来場お待ちしております！</h2>
-      <p class="anniv-cta__date">
-        2026年 <strong>3月14日（土）・15日（日）</strong>
-        <br>(土)9:00〜16:00<br>(日)9:00〜15:00
-      </p>
+      <h2 class="anniv-cta__title">ご来場ありがとうございました！</h2>
+      <p class="anniv-cta__text">次回のイベント情報はInstagramとLINEで随時お知らせします。</p>
       <div class="anniv-cta__buttons">
         <a href="https://www.instagram.com/minori_kaboku_interpark/" target="_blank" rel="noopener noreferrer" class="anniv-cta__button anniv-cta__button--instagram">
-          Instagramで最新情報をチェック
+          Instagramをフォローする
         </a>
-        <a href="tel:028-656-7193" class="anniv-cta__button anniv-cta__button--tel">
-          お問い合わせ 028-656-7193
+        <a href="https://lin.ee/Ri3brQ9" target="_blank" rel="noopener noreferrer" class="anniv-cta__button anniv-cta__button--line">
+          LINEで友だち追加
         </a>
       </div>
     </div>
