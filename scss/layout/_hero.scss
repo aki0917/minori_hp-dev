@@ -1,0 +1,233 @@
+/* ========================================
+   Hero Layout
+   ======================================== */
+
+.l-hero {
+  width: 100%;
+  position: relative;
+
+  &__content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    pointer-events: none;
+    opacity: 0;
+  }
+
+  &__copy {
+    pointer-events: auto;
+    margin-left: 16px;
+    margin-top: 32px;
+    max-width: 18em;
+    color: #fff;
+    font-size: 20px;
+    line-height: 1.7;
+    font-weight: 600;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+    opacity: 0; // 初期状態は非表示（GSAPで制御）
+  }
+
+  @include up(tab) {
+    &__copy {
+      margin-left: 40px;
+      margin-top: 56px;
+      font-size: 22px;
+    }
+  }
+
+  @include up(pc) {
+    &__copy {
+      margin-left: 80px;
+      margin-top: 80px;
+      font-size: 26px;
+    }
+  }
+
+  @include up(pc-large) {
+    &__copy {
+      margin-left: 120px;
+      margin-top: 96px;
+      font-size: 30px;
+    }
+  }
+
+  &-bg {
+    width: 100%;
+    overflow: hidden;
+
+    picture {
+      display: block;
+      width: 100%;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+      opacity: 0; 
+    }
+  }
+}
+
+.l-scroll-indicator {
+  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+
+  @include up(tab) {
+    padding: 56px 0;
+  }
+
+  @include up(pc) {
+    padding: 72px 0;
+  }
+
+  @include up(pc-large) {
+    padding: 88px 0;
+  }
+}
+
+.l-hero-scroll {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+
+  &__mouse {
+    width: 24px;
+    height: 40px;
+    border: 1.8px solid $color-primary;
+    border-radius: 12px;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 7px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 4px;
+      height: 7px;
+      background: $color-primary;
+      border-radius: 3px;
+      animation: scroll-wheel 2s ease-in-out infinite;
+    }
+  }
+
+  &__text {
+    display: flex;
+    gap: 3px;
+  }
+
+  &__letter {
+    display: inline-block;
+    font-size: 12px;
+    color: $color-primary;
+    font-weight: 600;
+    letter-spacing: 0;
+    animation: wave 2s ease-in-out infinite;
+    
+    @for $i from 1 through 6 {
+      &:nth-child(#{$i}) {
+        animation-delay: #{$i * 0.1}s;
+      }
+    }
+  }
+
+  @include up(tab) {
+    gap: 18px;
+
+    &__mouse {
+      width: 32px;
+      height: 54px;
+      border-width: 2.5px;
+      border-radius: 16px;
+
+      &::before {
+        top: 11px;
+        width: 6px;
+        height: 10px;
+      }
+    }
+
+    &__letter {
+      font-size: 13px;
+      letter-spacing: 0.04em;
+    }
+  }
+
+  @include up(pc) {
+    gap: 20px;
+
+    &__mouse {
+      width: 36px;
+      height: 60px;
+      border-width: 3px;
+      border-radius: 18px;
+
+      &::before {
+        top: 12px;
+        width: 6px;
+        height: 12px;
+      }
+    }
+
+    &__letter {
+      font-size: 14px;
+      letter-spacing: 0.08em;
+    }
+  }
+
+  @include up(pc-large) {
+    gap: 24px;
+
+    &__mouse {
+      width: 42px;
+      height: 70px;
+      border-width: 3px;
+      border-radius: 20px;
+
+      &::before {
+        top: 14px;
+        width: 7px;
+        height: 14px;
+      }
+    }
+
+    &__letter {
+      font-size: 15px;
+      letter-spacing: 0.12em;
+    }
+  }
+}
+
+@keyframes scroll-wheel {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(0);
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(18px);
+  }
+}
+
+@keyframes wave {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}

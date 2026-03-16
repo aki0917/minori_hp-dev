@@ -1,0 +1,55 @@
+/* ========================================
+   Mixin
+   ======================================== */
+
+// メディアクエリ（min-width）
+@mixin up($bp) {
+  @media (min-width: map-get($breakpoints, $bp)) {
+    @content;
+  }
+}
+
+// メディアクエリ（max-width）
+// 注意: モバイルファーストアプローチでは原則として使用しません
+// どうしても必要な場合のみ使用してください
+@mixin down($bp) {
+  $value: map-get($breakpoints, $bp);
+  @media (max-width: $value - 1px) {
+    @content;
+  }
+}
+
+// 後方互換性のためのmediaミックスイン（旧md/lg/xl → 新tab/pc/pc-large）
+@mixin media($breakpoint) {
+  @if $breakpoint == md {
+    @include up(tab) { @content; }
+  }
+  @if $breakpoint == lg {
+    @include up(pc) { @content; }
+  }
+  @if $breakpoint == xl {
+    @include up(pc-large) { @content; }
+  }
+}
+
+// フレックスボックス
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+// ホバーエフェクト
+@mixin hover-effect {
+  transition: all 0.3s ease;
+  
+  &:hover {
+    opacity: 0.8;
+  }
+}

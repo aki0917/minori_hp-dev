@@ -1,0 +1,268 @@
+/* ========================================
+   Items (主な取扱品目)
+   ======================================== */
+
+.p-items {
+  padding: 56px 0;
+  background-color: $color-gray-light;
+
+  @include up(tab) { padding: 120px 0; }
+
+  &__inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 $spacing-medium;
+    @include up(tab) { padding: 0 $spacing-large; }
+    @include up(pc) { padding: 0 $spacing-xl; }
+    @include up(pc-large) { padding: 0 $spacing-xxl; }
+  }
+
+  &__title {
+    font-size: 24px;
+    font-weight: 700;
+    color: $color-text;
+    text-align: center;
+    letter-spacing: 0.02em;
+    margin-bottom: $spacing-large;
+
+    @include up(tab) {
+      font-size: 28px;
+      margin-bottom: $spacing-xl;
+    }
+
+    @include up(pc) {
+      font-size: 32px;
+    }
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 100px;
+    margin-top: $spacing-medium;
+
+    @include up(pc) {
+      margin-top: $spacing-xxxxl;
+    }
+  }
+
+  &__item {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-xxl;
+    align-items: start;
+
+    @include up(tab) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    &:nth-child(even) {
+      @include up(tab) {
+        grid-template-columns: 1fr 1fr;
+
+        // <picture> タグでラップされた場合も order が正しく適用されるよう両方指定
+        .p-items__image,
+        picture {
+          order: 2;
+        }
+
+        .p-items__body {
+          order: 1;
+        }
+      }
+    }
+  }
+
+  &__item picture {
+    display: block;
+  }
+
+  &__item &__image {
+    width: 100%;
+    max-width: 230px;
+    aspect-ratio: 1 / 1; 
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    margin: 0 auto;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), 0 0 0 4px rgba($color-primary, 0.08);
+    border: 6px solid rgba($color-white, 0.9);
+    background: $color-white;
+    overflow: hidden;
+
+    @include up(tab) {
+      max-width: 460px;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25), 0 0 0 6px rgba($color-primary, 0.1);
+      border-width: 8px;
+    }
+
+    @include up(pc) {
+      max-width: 400px;
+    }
+
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 48px rgba(0, 0, 0, 0.3), 0 0 0 6px rgba($color-primary, 0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-medium;
+    padding: 10px 30px;
+
+    @include up(pc) {
+      padding: 0;
+    }
+  }
+
+  &__item-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: $color-text;
+    margin: 0;
+    
+    @include up(tab) {
+      font-size: 22px;
+    }
+
+    @include up(pc) {
+      font-size: 24px;
+    }
+    
+    &::after {
+      content: '';
+      display: block;
+      height: 2px;
+      margin: $spacing-small 0 0;
+      background: $color-secondary;
+      border-radius: 1px;
+    }
+  }
+
+  &__item-sub {
+    font-size: 14px; 
+    font-weight: 600;
+    color: $color-primary;
+    margin: 0;
+
+    @include up(tab) {
+      font-size: 19px; 
+    }
+
+    @include up(pc) {
+      font-size: 20px;
+    }
+  }
+
+  &__item-text {
+    font-size: 10px; 
+    line-height: 1.7; 
+    color: $color-text-light;
+    margin: 0;
+
+    @include up(tab) {
+      font-size: 15px; 
+      line-height: 1.8;
+    }
+
+    @include up(pc) {
+      font-size: 18px; 
+      line-height: 1.9;
+    }
+  }
+}
+
+/* ========================================
+   カード型（別セクション用に保持）
+   ======================================== */
+.p-items-card {
+  padding: 56px 0; 
+
+  &__list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-large;
+
+    @include up(tab) { 
+      grid-template-columns: 1fr 1fr; 
+    }
+    @include up(pc) { 
+      grid-template-columns: repeat(3, 1fr); 
+      gap: $spacing-xl; 
+    }
+  }
+
+  &__card {
+    background: #fff;
+    border: 1px solid $color-gray;
+    border-radius: 12px;
+    padding: $spacing-large;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    }
+
+    picture {
+      display: block;
+    }
+
+    .p-items__image {
+      border-radius: 8px; 
+      aspect-ratio: auto;
+      border: none;
+      box-shadow: none;
+      max-width: 100%;
+      
+      &:hover {
+        transform: none;
+        box-shadow: none;
+      }
+    }
+  }
+
+  &__card-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: $color-secondary;
+    margin-bottom: $spacing-small;
+
+    @include up(tab) {
+      font-size: 19px;
+    }
+
+    @include up(pc) {
+      font-size: 20px;
+    }
+  }
+
+  &__card-sub {
+    font-size: $font-size-small;
+    color: $color-text-light;
+    margin-bottom: $spacing-medium;
+  }
+
+  &__card-text {
+    line-height: 1.7; 
+    font-size: 14px;
+    margin-bottom: $spacing-large;
+
+    @include up(tab) {
+      line-height: 1.8;
+    }
+
+    @include up(pc) {
+      line-height: 1.9;
+    }
+  }
+
+  &__card-cta { text-align: right; }
+}
+
+

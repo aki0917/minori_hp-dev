@@ -1,0 +1,40 @@
+/* ========================================
+   Variable
+   ======================================== */
+
+// カラーパレット
+$color-primary: #4CAF50;      // 緑色（アクティブ状態）
+$color-secondary: #2E7D32;    // 濃い緑色
+$color-text: #333333;         // テキスト色
+$color-text-light: #666666;   // 薄いテキスト色
+$color-white: #ffffff;        // 白色
+$color-gray-light: #f5f5f5;   // 薄いグレー
+$color-gray: #e0e0e0;
+$color-bg1: #e3fffb; 
+$color-bg2: #fff4e3;
+
+// フォント
+$font-family-base: 'Hiragino Sans', 'ヒラギノ角ゴシック', 'Yu Gothic', '游ゴシック', 'Meiryo', 'メイリオ', sans-serif;
+$font-size-base: 16px;
+$font-size-xsmall: 10px;
+$font-size-xxsmall: 12px;
+$font-size-small: 14px;
+$font-size-large: 18px;
+
+// スペーシング
+$spacing-small: 8px;
+$spacing-medium: 16px;
+$spacing-large: 24px;
+$spacing-xl: 32px;
+$spacing-xxl: 40px;
+$spacing-xxxl: 48px;
+$spacing-xxxxl: 100px;
+
+// ブレークポイント
+$breakpoints: (
+  "tab": 769px,
+  "tab-large": 960px,
+  "pc": 1025px,       
+  "pc-large": 1440px,  
+  "wide": 1920px 
+);

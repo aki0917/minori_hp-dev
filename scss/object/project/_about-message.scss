@@ -1,0 +1,71 @@
+/* ========================================
+   About Message (超スローフード宣言とは)
+   ======================================== */
+
+.p-about-message {
+  background-color: $color-white;
+  padding: 60px 0;
+
+  &__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 $spacing-medium;
+
+    @include up(tab) {
+      padding: 0 $spacing-large;
+    }
+
+    @include up(pc) {
+      padding: 0 $spacing-xl;
+    }
+  }
+
+  &__title {
+    text-align: center;
+    margin-bottom: $spacing-xl;
+  }
+
+  &__content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  &__text {
+    color: $color-text;
+    line-height: 2;
+    font-size: $font-size-small;
+    letter-spacing: 0.02em;
+    margin-bottom: $spacing-large;
+    font-weight: 400;
+    text-align: left;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @include up(tab) {
+      font-size: $font-size-base;
+      line-height: 2.2;
+      margin-bottom: $spacing-xl;
+    }
+
+    @include up(pc) {
+      font-size: $font-size-large;
+      line-height: 2.4;
+      margin-bottom: $spacing-xl;
+    }
+  }
+
+  @include up(tab) {
+    padding: 80px 0;
+  }
+
+  @include up(pc) {
+    padding: 100px 0;
+  }
+}
+
+
+
+
+

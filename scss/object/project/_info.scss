@@ -1,0 +1,604 @@
+/* ========================================
+   Info Section (大口購入のチャートフロー & よくある質問)
+   ======================================== */
+
+.p-info {
+  padding: 56px 0;
+  background: $color-white;
+
+  @include up(tab) {
+    padding: 100px 0;
+  }
+
+  &__inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 $spacing-medium;
+
+    @include up(tab) { padding: 0 $spacing-large; }
+    @include up(pc) { padding: 0 $spacing-xl; }
+    @include up(pc-large) { padding: 0 $spacing-xxl; }
+  }
+
+  &__flow {
+    margin-bottom: 80px;
+
+    @include up(tab) {
+      margin-bottom: 120px;
+    }
+
+    .c-sec-title {
+      margin-bottom: 48px;
+
+      @include up(tab) {
+        margin-bottom: 64px;
+      }
+    }
+  }
+
+  &__flow-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  &__flow-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    position: relative;
+    padding-bottom: 40px;
+
+    @include up(tab) {
+      gap: 32px;
+      padding-bottom: 48px;
+    }
+
+    @include up(pc) {
+      gap: 40px;
+      padding-bottom: 56px;
+    }
+
+    &:last-child {
+      padding-bottom: 0;
+
+      .p-info__flow-line {
+        display: none;
+      }
+    }
+  }
+
+  &__flow-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+    position: relative;
+  }
+
+  &__flow-number {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, $color-primary 0%, $color-secondary 100%);
+    color: $color-white;
+    font-size: 20px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(46, 125, 50, 0.3);
+    position: relative;
+    z-index: 2;
+    flex-shrink: 0;
+
+    @include up(tab) {
+      width: 72px;
+      height: 72px;
+      font-size: 24px;
+    }
+
+    @include up(pc) {
+      width: 80px;
+      height: 80px;
+      font-size: 28px;
+    }
+  }
+
+  &__flow-line {
+    width: 3px;
+    flex: 1;
+    background: linear-gradient(to bottom, $color-primary 0%, $color-secondary 100%);
+    margin-top: 8px;
+    min-height: 60px;
+    border-radius: 2px;
+    position: relative;
+
+    @include up(tab) {
+      min-height: 80px;
+    }
+
+    @include up(pc) {
+      min-height: 100px;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 0;
+      background: linear-gradient(to bottom, $color-secondary 0%, $color-primary 100%);
+      border-radius: 2px;
+      transition: height 0.6s ease;
+    }
+  }
+
+  &__flow-content {
+    flex: 1;
+    padding-top: 8px;
+
+    @include up(tab) {
+      padding-top: 12px;
+    }
+  }
+
+  &__flow-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: $color-text;
+    margin-bottom: 12px;
+    line-height: 1.4;
+
+    @include up(tab) {
+      font-size: 20px;
+      margin-bottom: 16px;
+    }
+
+    @include up(pc) {
+      font-size: 22px;
+    }
+  }
+
+  &__flow-text {
+    font-size: $font-size-small;
+    line-height: 1.7;
+    color: $color-text-light;
+    margin: 0;
+
+    @include up(tab) {
+      font-size: $font-size-base;
+      line-height: 1.8;
+    }
+  }
+
+  &__flow-cta {
+    text-align: center;
+    margin-top: 48px;
+
+    @include up(tab) {
+      margin-top: 64px;
+    }
+
+    @include up(pc) {
+      margin-top: 80px;
+    }
+  }
+
+  &__faq {
+    .c-sec-title {
+      margin-bottom: 48px;
+
+      @include up(tab) {
+        margin-bottom: 64px;
+      }
+    }
+  }
+
+  &__faq-list {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  &__faq-item {
+    border-bottom: 1px solid $color-gray;
+    margin-bottom: 0;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  &__faq-question {
+    width: 100%;
+    padding: 24px 0;
+    background: transparent;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    transition: color 0.3s ease;
+
+    @include up(tab) {
+      padding: 28px 0;
+    }
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+
+  &__faq-question-text {
+    font-size: $font-size-base;
+    font-weight: 700;
+    color: $color-text;
+    flex: 1;
+
+    @include up(tab) {
+      font-size: $font-size-large;
+    }
+  }
+
+  &__faq-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: $color-primary;
+    color: $color-white;
+    font-size: 24px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    line-height: 1;
+
+    @include up(tab) {
+      width: 36px;
+      height: 36px;
+      font-size: 28px;
+    }
+  }
+
+  &__faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+    padding: 0 0;
+  }
+
+  &__faq-item[aria-expanded="true"] &__faq-answer {
+    max-height: 500px;
+    padding: 0 0 24px;
+
+    @include up(tab) {
+      padding: 0 0 28px;
+    }
+  }
+
+  &__faq-answer-text {
+    font-size: $font-size-small;
+    line-height: 1.8;
+    color: $color-text-light;
+    margin: 0;
+
+    @include up(tab) {
+      font-size: $font-size-base;
+      line-height: 1.9;
+    }
+  }
+
+  &__slider {
+    padding: $spacing-large 0 $spacing-xxxl;
+    overflow: visible;
+    position: relative;
+  }
+
+  &__card {
+    background: $color-white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    }
+  }
+
+  &__image {
+    position: relative;
+    height: 240px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: $spacing-xl;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    @include up(tab) {
+      height: 280px;
+    }
+  }
+
+  .swiper-slide:nth-child(1) &__card &__image {
+    background: linear-gradient(135deg, #4CAF50 0%, #66BB6A 100%);
+  }
+
+  .swiper-slide:nth-child(2) &__card &__image {
+    background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
+  }
+
+  .swiper-slide:nth-child(3) &__card &__image {
+    background: linear-gradient(135deg, #388E3C 0%, #2E7D32 100%);
+  }
+
+  .swiper-slide:nth-child(4) &__card &__image {
+    background: linear-gradient(135deg, #66BB6A 0%, #388E3C 100%);
+  }
+
+  &__image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.4) 100%);
+    z-index: 1;
+  }
+
+  &__icon {
+    position: relative;
+    z-index: 2;
+    width: 56px;
+    height: 56px;
+    margin-bottom: $spacing-medium;
+    background: rgba($color-white, 0.9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+
+    @include up(tab) {
+      width: 64px;
+      height: 64px;
+      font-size: 32px;
+    }
+
+    @include up(pc) {
+      width: 72px;
+      height: 72px;
+      font-size: 36px;
+    }
+  }
+
+  &__title {
+    position: relative;
+    z-index: 2;
+    font-size: 20px;
+    font-weight: 700;
+    color: $color-white;
+    text-align: center;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    margin: 0;
+
+    @include up(tab) {
+      font-size: 24px;
+    }
+
+    @include up(pc) {
+      font-size: 28px;
+    }
+  }
+
+  &__content {
+    padding: $spacing-xl;
+    flex: 1;
+    display: flex;
+    align-items: center;
+  }
+
+  &__text {
+    color: $color-text-light;
+    line-height: 1.7;
+    margin: 0;
+    font-size: $font-size-small;
+
+    @include up(tab) {
+      font-size: $font-size-base;
+      line-height: 1.8;
+    }
+
+    @include up(pc) {
+      font-size: $font-size-large;
+      line-height: 1.9;
+    }
+  }
+
+  &__navigation {
+    position: relative;
+    margin-top: $spacing-large;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: $spacing-medium;
+    width: 100%;
+    max-width: 100%;
+    overflow: visible;
+  }
+
+  &__button-prev,
+  &__button-next {
+    width: 48px !important;
+    height: 48px !important;
+    min-width: 48px !important;
+    min-height: 48px !important;
+    border-radius: 50% !important;
+    background: $color-white !important;
+    border: 2px solid $color-primary !important;
+    color: $color-primary !important;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative !important;
+    margin: 0 !important;
+    flex-shrink: 0;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+
+    &::before,
+    &::after {
+      content: '' !important;
+      position: absolute !important;
+      top: 50% !important;
+      left: 50% !important;
+      transform: translate(-50%, -50%) !important;
+      width: 0 !important;
+      height: 0 !important;
+      border-style: solid !important;
+      margin: 0 !important;
+      font-size: 0 !important;
+      font-family: none !important;
+      text-transform: none !important;
+      letter-spacing: normal !important;
+      font-variant: normal !important;
+      text-rendering: auto !important;
+    }
+
+    &.swiper-button-prev::after {
+      border-width: 6px 10px 6px 0 !important;
+      border-color: transparent $color-primary transparent transparent !important;
+      margin-left: -3px !important;
+    }
+
+    &.swiper-button-next::after {
+      border-width: 6px 0 6px 10px !important;
+      border-color: transparent transparent transparent $color-primary !important;
+      margin-left: 3px !important;
+    }
+
+    &:hover {
+      background: $color-primary !important;
+      transform: scale(1.1);
+
+      &.swiper-button-prev::after {
+        border-color: transparent $color-white transparent transparent !important;
+      }
+
+      &.swiper-button-next::after {
+        border-color: transparent transparent transparent $color-white !important;
+      }
+    }
+
+    &:disabled {
+      opacity: 0.3 !important;
+      cursor: not-allowed;
+      transform: none;
+    }
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    position: static !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    width: 48px !important;
+    height: 48px !important;
+    background: $color-white !important;
+    border: 2px solid $color-primary !important;
+    border-radius: 50% !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+  }
+}
+
+.p-info {
+  .swiper-button-prev,
+  .swiper-button-next {
+    all: initial;
+    width: 48px !important;
+    height: 48px !important;
+    min-width: 48px !important;
+    min-height: 48px !important;
+    border-radius: 50% !important;
+    background: $color-white !important;
+    border: 2px solid $color-primary !important;
+    color: $color-primary !important;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative !important;
+    margin: 0 !important;
+    flex-shrink: 0;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+    font-size: 0 !important;
+    line-height: 0 !important;
+    
+    &::before,
+    &::after {
+      content: '' !important;
+      position: absolute !important;
+      top: 50% !important;
+      left: 50% !important;
+      transform: translate(-50%, -50%) !important;
+      width: 0 !important;
+      height: 0 !important;
+      border-style: solid !important;
+      margin: 0 !important;
+    }
+
+    &.swiper-button-prev::after {
+      border-width: 6px 10px 6px 0 !important;
+      border-color: transparent $color-primary transparent transparent !important;
+      margin-left: -3px !important;
+    }
+
+    &.swiper-button-next::after {
+      border-width: 6px 0 6px 10px !important;
+      border-color: transparent transparent transparent $color-primary !important;
+      margin-left: 3px !important;
+    }
+
+    &:hover {
+      background: $color-primary !important;
+      transform: scale(1.1);
+
+      &.swiper-button-prev::after {
+        border-color: transparent $color-white transparent transparent !important;
+      }
+
+      &.swiper-button-next::after {
+        border-color: transparent transparent transparent $color-white !important;
+      }
+    }
+  }
+}
+
+

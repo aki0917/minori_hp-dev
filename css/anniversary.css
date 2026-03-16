@@ -1,0 +1,2003 @@
+/* ========================================
+   4周年祭 LP - Anniversary Landing Page
+   ======================================== */
+
+/* ----------------------------------------
+   CSS変数
+   ---------------------------------------- */
+:root {
+  --anniv-green: #4CAF50;
+  --anniv-green-dark: #2E7D32;
+  --anniv-green-light: #E8F5E9;
+  --anniv-pink: #E91E63;
+  --anniv-pink-light: #FCE4EC;
+  --anniv-orange: #FF9800;
+  --anniv-orange-light: #FFF3E0;
+  --anniv-red: #F44336;
+  --anniv-gold: #FFD700;
+  --anniv-blue: #2196F3;
+  --anniv-blue-light: #E3F2FD;
+  --anniv-purple: #9C27B0;
+  --anniv-purple-light: #F3E5F5;
+  --anniv-teal: #009688;
+  --anniv-teal-light: #E0F2F1;
+  --anniv-yellow: #FFC107;
+  --anniv-yellow-light: #FFFDE7;
+  --anniv-coral: #FF6B6B;
+  --anniv-text: #333333;
+  --anniv-text-light: #666666;
+  --anniv-white: #ffffff;
+  --anniv-bg-light: #FAFAFA;
+  --anniv-bg-cream: #FFF8F0;
+  --anniv-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
+  --anniv-shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
+  --anniv-shadow-color: 0 4px 20px rgba(233, 30, 99, 0.15);
+  --anniv-radius: 12px;
+  --anniv-radius-lg: 20px;
+  --anniv-transition: 0.3s ease;
+  --anniv-font: 'Hiragino Sans', 'ヒラギノ角ゴシック', 'Yu Gothic', '游ゴシック', 'Meiryo', 'メイリオ', sans-serif;
+  --anniv-header-h: 80px;
+  --anniv-nav-h: 48px;
+  --anniv-rainbow: linear-gradient(90deg, #FF6B6B, #FF9800, #FFC107, #4CAF50, #2196F3, #9C27B0);
+}
+
+/* ----------------------------------------
+   グローバルヘッダー非表示（LP独立化）
+   ---------------------------------------- */
+body.page-template-page-anniversary .l-header,
+body.page-template-page-anniversary .l-footer {
+  display: none !important;
+}
+
+/* ----------------------------------------
+   ページ内ナビゲーション
+   ---------------------------------------- */
+.anniv-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 2px solid transparent;
+  border-image: var(--anniv-rainbow) 1;
+  height: var(--anniv-nav-h);
+}
+
+.anniv-nav__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* サイトTOPへ戻るリンク */
+.anniv-nav__home {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  height: 100%;
+  text-decoration: none;
+  color: var(--anniv-green-dark);
+  transition: opacity var(--anniv-transition);
+}
+
+.anniv-nav__home:hover {
+  opacity: 0.7;
+}
+
+.anniv-nav__home-text {
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+}
+
+/* ロゴとリストの区切り線 */
+.anniv-nav__divider {
+  width: 1px;
+  height: 20px;
+  background: #d0d0d0;
+  flex-shrink: 0;
+}
+
+.anniv-nav__list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  height: 100%;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex: 1;
+}
+
+.anniv-nav__item {
+  height: 100%;
+}
+
+.anniv-nav__link {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 16px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--anniv-text);
+  text-decoration: none;
+  border-bottom: 3px solid transparent;
+  transition: border-color var(--anniv-transition), color var(--anniv-transition);
+  white-space: nowrap;
+}
+
+.anniv-nav__link:hover,
+.anniv-nav__link.is-active {
+  color: var(--anniv-green-dark);
+  border-bottom-color: var(--anniv-green);
+}
+
+/* ----------------------------------------
+   メイン
+   ---------------------------------------- */
+.anniv-main {
+  overflow-x: hidden;
+}
+
+/* ----------------------------------------
+   ヒーローセクション
+   ---------------------------------------- */
+.anniv-hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  background: #333;
+}
+
+/* 背景写真 */
+.anniv-hero__bg-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../assets/img/anniversary/birthflower.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  animation: annivHeroZoom 20s ease infinite alternate;
+}
+
+@keyframes annivHeroZoom {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.08); }
+}
+
+/* 半透明オーバーレイ（テキスト読みやすさ確保） */
+.anniv-hero__bg-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    linear-gradient(135deg,
+      rgba(0, 0, 0, 0.35) 0%,
+      rgba(0, 0, 0, 0.2) 40%,
+      rgba(0, 0, 0, 0.3) 100%
+    );
+  z-index: 1;
+}
+
+/* 桜の花びらアニメーション */
+.anniv-hero__petals {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.anniv-hero__petal {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(ellipse at center, rgba(255,255,255,0.9) 0%, rgba(255,200,210,0.7) 50%, transparent 70%);
+  border-radius: 50% 0 50% 50%;
+  opacity: 0.7;
+  animation: annivPetalFall linear infinite;
+}
+
+.anniv-hero__petal--1 { left: 10%; animation-duration: 8s; animation-delay: 0s; width: 18px; height: 18px; }
+.anniv-hero__petal--2 { left: 25%; animation-duration: 10s; animation-delay: 1s; width: 14px; height: 14px; }
+.anniv-hero__petal--3 { left: 40%; animation-duration: 7s; animation-delay: 2s; width: 22px; height: 22px; }
+.anniv-hero__petal--4 { left: 55%; animation-duration: 9s; animation-delay: 0.5s; width: 16px; height: 16px; }
+.anniv-hero__petal--5 { left: 70%; animation-duration: 11s; animation-delay: 1.5s; width: 20px; height: 20px; }
+.anniv-hero__petal--6 { left: 85%; animation-duration: 8s; animation-delay: 3s; width: 12px; height: 12px; }
+.anniv-hero__petal--7 { left: 15%; animation-duration: 12s; animation-delay: 4s; width: 15px; height: 15px; }
+.anniv-hero__petal--8 { left: 60%; animation-duration: 9s; animation-delay: 2.5s; width: 18px; height: 18px; }
+
+@keyframes annivPetalFall {
+  0% {
+    transform: translateY(-10%) rotate(0deg) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  90% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(110vh) rotate(720deg) translateX(100px);
+    opacity: 0;
+  }
+}
+
+/* 紙吹雪（コンフェッティ） */
+.anniv-hero__confetti {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.anniv-hero__confetti-piece {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  opacity: 0;
+  animation: annivConfettiFall linear infinite;
+}
+
+.anniv-hero__confetti-piece--1 { left: 5%; background: var(--anniv-pink); width: 8px; height: 12px; border-radius: 2px; animation-duration: 6s; animation-delay: 0s; }
+.anniv-hero__confetti-piece--2 { left: 15%; background: var(--anniv-yellow); width: 12px; height: 8px; border-radius: 50%; animation-duration: 7s; animation-delay: 0.5s; }
+.anniv-hero__confetti-piece--3 { left: 25%; background: var(--anniv-blue); width: 10px; height: 10px; border-radius: 2px; animation-duration: 5s; animation-delay: 1s; }
+.anniv-hero__confetti-piece--4 { left: 35%; background: var(--anniv-green); width: 6px; height: 14px; border-radius: 2px; animation-duration: 8s; animation-delay: 0.3s; }
+.anniv-hero__confetti-piece--5 { left: 45%; background: var(--anniv-purple); width: 12px; height: 6px; border-radius: 50%; animation-duration: 6.5s; animation-delay: 1.5s; }
+.anniv-hero__confetti-piece--6 { left: 55%; background: var(--anniv-orange); width: 8px; height: 10px; border-radius: 2px; animation-duration: 7.5s; animation-delay: 0.8s; }
+.anniv-hero__confetti-piece--7 { left: 65%; background: var(--anniv-coral); width: 10px; height: 8px; border-radius: 50%; animation-duration: 5.5s; animation-delay: 2s; }
+.anniv-hero__confetti-piece--8 { left: 75%; background: var(--anniv-teal); width: 14px; height: 6px; border-radius: 2px; animation-duration: 6s; animation-delay: 1.2s; }
+.anniv-hero__confetti-piece--9 { left: 85%; background: var(--anniv-gold); width: 8px; height: 8px; border-radius: 50%; animation-duration: 7s; animation-delay: 0.6s; }
+.anniv-hero__confetti-piece--10 { left: 92%; background: var(--anniv-pink); width: 10px; height: 6px; border-radius: 2px; animation-duration: 5.5s; animation-delay: 1.8s; }
+
+@keyframes annivConfettiFall {
+  0% {
+    transform: translateY(-20px) rotate(0deg) scale(1);
+    opacity: 0;
+  }
+  5% { opacity: 0.8; }
+  50% { opacity: 0.8; }
+  100% {
+    transform: translateY(110vh) rotate(720deg) scale(0.5);
+    opacity: 0;
+  }
+}
+
+.anniv-hero__content {
+  position: relative;
+  z-index: 3;
+  padding: 40px 20px;
+}
+
+.anniv-hero__store {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--anniv-white);
+  letter-spacing: 0.15em;
+  margin-bottom: 12px;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.4);
+}
+
+.anniv-hero__title {
+  margin: 0 0 24px;
+  line-height: 1;
+}
+
+.anniv-hero__title-num {
+  display: block;
+  font-size: 120px;
+  font-weight: 900;
+  background: linear-gradient(135deg, #FFD700 0%, #FFA000 20%, #FFD700 40%, #FFF176 50%, #FFD700 60%, #FFA000 80%, #FFD700 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+  margin-bottom: 8px;
+  filter: drop-shadow(3px 3px 8px rgba(0, 0, 0, 0.4)) drop-shadow(0 0 20px rgba(255, 215, 0, 0.5));
+  animation: annivGoldShimmer 3s ease infinite;
+}
+
+@keyframes annivGoldShimmer {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.anniv-hero__title-text {
+  display: block;
+  font-size: 48px;
+  font-weight: 900;
+  color: var(--anniv-white);
+  letter-spacing: 0.2em;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+.anniv-hero__date {
+  margin-bottom: 32px;
+}
+
+.anniv-hero__date-main {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.anniv-hero__date-month {
+  font-size: 56px;
+  font-weight: 900;
+  color: var(--anniv-yellow);
+  line-height: 1;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.anniv-hero__date-slash {
+  font-size: 40px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.anniv-hero__date-days {
+  font-size: 40px;
+  font-weight: 800;
+  color: var(--anniv-white);
+  line-height: 1;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.anniv-hero__date-days small {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.anniv-hero__date-time {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--anniv-yellow);
+  letter-spacing: 0.1em;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
+}
+
+.anniv-hero__date-note {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.85);
+  margin-top: 8px;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.anniv-hero__badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.anniv-hero__badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 24px;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--anniv-white);
+  animation: annivBadgePulse 2s ease infinite;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.anniv-hero__badge::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.3) 50%, transparent 70%);
+  animation: annivBadgeShine 3s ease infinite;
+}
+
+@keyframes annivBadgeShine {
+  0% { transform: translateX(-100%) rotate(25deg); }
+  100% { transform: translateX(100%) rotate(25deg); }
+}
+
+.anniv-hero__badge--lottery {
+  background: linear-gradient(135deg, #FF6B35, #FF9800, #FFB74D);
+  animation-delay: 0s;
+}
+
+.anniv-hero__badge--food {
+  background: linear-gradient(135deg, #E91E63, #FF5252, #FF8A80);
+  animation-delay: 0.3s;
+}
+
+.anniv-hero__badge--sale {
+  background: linear-gradient(135deg, #4CAF50, #66BB6A, #81C784);
+  animation-delay: 0.6s;
+}
+
+@keyframes annivBadgePulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+}
+
+.anniv-hero__scroll {
+  display: inline-block;
+  width: 40px;
+  height: 60px;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  border-radius: 20px;
+  position: relative;
+  cursor: pointer;
+}
+
+.anniv-hero__scroll-arrow {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  background: var(--anniv-white);
+  border-radius: 50%;
+  transform: translateX(-50%);
+  animation: annivScrollBounce 1.5s ease infinite;
+}
+
+@keyframes annivScrollBounce {
+  0%, 100% { top: 10px; opacity: 1; }
+  50% { top: 36px; opacity: 0.3; }
+}
+
+/* ----------------------------------------
+   概要セクション
+   ---------------------------------------- */
+.anniv-overview {
+  padding: 80px 20px;
+  background:
+    radial-gradient(circle, rgba(255, 193, 7, 0.08) 1px, transparent 1px),
+    linear-gradient(180deg, var(--anniv-white) 0%, #FFF8E1 100%);
+  background-size: 24px 24px, 100% 100%;
+  text-align: center;
+}
+
+.anniv-overview__inner {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.anniv-overview__text {
+  font-size: 16px;
+  line-height: 2;
+  color: var(--anniv-text);
+  margin-bottom: 48px;
+}
+
+.anniv-overview__text strong {
+  color: var(--anniv-green-dark);
+  font-weight: 700;
+}
+
+.anniv-overview__highlights {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.anniv-overview__highlight {
+  border-radius: var(--anniv-radius-lg);
+  padding: 32px 20px;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.anniv-overview__highlight::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  border-radius: var(--anniv-radius-lg) var(--anniv-radius-lg) 0 0;
+}
+
+.anniv-overview__highlight:nth-child(1) {
+  background: linear-gradient(135deg, #FCE4EC, #FFF0F5);
+}
+.anniv-overview__highlight:nth-child(1)::before {
+  background: linear-gradient(90deg, var(--anniv-pink), var(--anniv-coral));
+}
+
+.anniv-overview__highlight:nth-child(2) {
+  background: linear-gradient(135deg, #FFF3E0, #FFF8F0);
+}
+.anniv-overview__highlight:nth-child(2)::before {
+  background: linear-gradient(90deg, var(--anniv-orange), var(--anniv-yellow));
+}
+
+.anniv-overview__highlight:nth-child(3) {
+  background: linear-gradient(135deg, #E8F5E9, #F0FFF0);
+}
+.anniv-overview__highlight:nth-child(3)::before {
+  background: linear-gradient(90deg, var(--anniv-green), var(--anniv-teal));
+}
+
+.anniv-overview__highlight:hover {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+}
+
+.anniv-overview__highlight.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.anniv-overview__highlight-icon {
+  font-size: 48px;
+  margin-bottom: 12px;
+}
+
+.anniv-overview__highlight-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--anniv-green-dark);
+  margin: 0 0 8px;
+}
+
+.anniv-overview__highlight-text {
+  font-size: 14px;
+  color: var(--anniv-text);
+  margin: 0;
+}
+
+/* ----------------------------------------
+   共通セクションスタイル
+   ---------------------------------------- */
+.anniv-section {
+  padding: 80px 20px;
+}
+
+.anniv-section__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* セクションタイトル */
+.anniv-section-title {
+  text-align: center;
+  margin-bottom: 48px;
+  position: relative;
+  padding: 20px 40px;
+}
+
+/* 装飾フレーム（左右の花飾り） */
+.anniv-section-title::before,
+.anniv-section-title::after {
+  content: '✿';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px;
+  opacity: 0.5;
+  animation: annivFlowerSpin 6s linear infinite;
+}
+
+.anniv-section-title::before {
+  left: 0;
+}
+
+.anniv-section-title::after {
+  right: 0;
+  animation-direction: reverse;
+}
+
+@keyframes annivFlowerSpin {
+  0% { transform: translateY(-50%) rotate(0deg); opacity: 0.4; }
+  50% { opacity: 0.7; }
+  100% { transform: translateY(-50%) rotate(360deg); opacity: 0.4; }
+}
+
+.anniv-section-title__en {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  background: linear-gradient(90deg, var(--anniv-pink), var(--anniv-orange), var(--anniv-green), var(--anniv-blue), var(--anniv-purple));
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  animation: annivRainbowText 4s linear infinite;
+}
+
+@keyframes annivRainbowText {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+.anniv-section-title__ja {
+  display: inline-block;
+  font-size: 28px;
+  font-weight: 900;
+  position: relative;
+  padding: 0 8px 16px;
+  background: linear-gradient(135deg, var(--anniv-text) 0%, #555 50%, var(--anniv-text) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.anniv-section-title__ja::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120%;
+  height: 4px;
+  background: var(--anniv-rainbow);
+  background-size: 200% auto;
+  border-radius: 2px;
+  animation: annivRainbowLine 3s linear infinite;
+}
+
+.anniv-section-title__ja::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 2px;
+  background: var(--anniv-rainbow);
+  background-size: 200% auto;
+  border-radius: 2px;
+  animation: annivRainbowLine 3s linear infinite;
+  animation-delay: 0.5s;
+  opacity: 0.5;
+}
+
+@keyframes annivRainbowLine {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+/* セクション別タイトルカラー */
+.anniv-exhibition .anniv-section-title__ja {
+  background: linear-gradient(135deg, #1565C0, #1976D2, #1565C0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.anniv-events .anniv-section-title__ja {
+  background: linear-gradient(135deg, #E65100, #F57C00, #E65100);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.anniv-sales .anniv-section-title__ja {
+  background: linear-gradient(135deg, #C2185B, #E91E63, #C2185B);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.anniv-access .anniv-section-title__ja {
+  background: linear-gradient(135deg, #00695C, #00897B, #00695C);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.anniv-overview .anniv-section-title__ja {
+  background: linear-gradient(135deg, #E65100, #FF8F00, #E65100);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ----------------------------------------
+   ウェーブ区切り線（セクション間）
+   ---------------------------------------- */
+.anniv-wave {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: -2px 0;
+  line-height: 0;
+}
+
+.anniv-wave svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ----------------------------------------
+   フォトバナー（セクション間）
+   ---------------------------------------- */
+.anniv-photo-banner {
+  position: relative;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.anniv-photo-banner__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  animation: annivHeroZoom 20s ease infinite alternate;
+}
+
+.anniv-photo-banner--bara .anniv-photo-banner__bg {
+  background-image: url('../assets/img/anniversary/bara.jpg');
+}
+
+.anniv-photo-banner--flower .anniv-photo-banner__bg {
+  background-image: url('../assets/img/anniversary/birthflower.jpg');
+}
+
+.anniv-photo-banner__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.15) 50%, rgba(0,0,0,0.4) 100%);
+}
+
+.anniv-photo-banner__content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 20px;
+}
+
+.anniv-photo-banner__text {
+  font-size: 32px;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+  margin: 0;
+}
+
+.anniv-photo-banner__sub {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 12px 0 0;
+  letter-spacing: 0.1em;
+}
+
+/* bara.jpg（ピンクのバラ）: ゴールド文字 */
+.anniv-photo-banner--bara .anniv-photo-banner__text {
+  background: linear-gradient(135deg, #FFD700 0%, #FFA000 20%, #FFD700 40%, #FFF176 50%, #FFD700 60%, #FFA000 80%, #FFD700 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(2px 2px 6px rgba(0,0,0,0.5));
+  animation: annivGoldShimmer 3s ease infinite;
+}
+
+.anniv-photo-banner--bara .anniv-photo-banner__sub {
+  color: #FFF176;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.6);
+}
+
+/* birthflower.jpg: ゴールドシマー */
+.anniv-photo-banner--flower .anniv-photo-banner__text {
+  background: linear-gradient(135deg, #FFD700 0%, #FFA000 20%, #FFD700 40%, #FFF176 50%, #FFD700 60%, #FFA000 80%, #FFD700 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(2px 2px 6px rgba(0,0,0,0.5));
+  animation: annivGoldShimmer 3s ease infinite;
+}
+
+.anniv-photo-banner--flower .anniv-photo-banner__sub {
+  color: #FFF176;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.6);
+}
+
+/* ----------------------------------------
+   展示・実演会セクション
+   ---------------------------------------- */
+.anniv-exhibition {
+  background:
+    radial-gradient(circle, rgba(33, 150, 243, 0.06) 1.5px, transparent 1.5px),
+    linear-gradient(180deg, var(--anniv-blue-light) 0%, #F1F8FE 100%);
+  background-size: 20px 20px, 100% 100%;
+}
+
+/* カテゴリー */
+.anniv-category {
+  margin-bottom: 48px;
+}
+
+.anniv-category:last-child {
+  margin-bottom: 0;
+}
+
+.anniv-category__title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 22px;
+  font-weight: 800;
+  margin: 0 0 20px;
+  padding: 12px 16px;
+  border-radius: var(--anniv-radius);
+  border-bottom: none;
+  position: relative;
+}
+
+/* カテゴリーごとに異なるカラー */
+.anniv-category:nth-child(1) .anniv-category__title {
+  background: linear-gradient(135deg, var(--anniv-blue-light), #BBDEFB);
+  color: #1565C0;
+}
+
+.anniv-category:nth-child(2) .anniv-category__title {
+  background: linear-gradient(135deg, var(--anniv-orange-light), #FFE0B2);
+  color: #E65100;
+}
+
+.anniv-category:nth-child(3) .anniv-category__title {
+  background: linear-gradient(135deg, var(--anniv-green-light), #C8E6C9);
+  color: var(--anniv-green-dark);
+}
+
+.anniv-category:nth-child(4) .anniv-category__title {
+  background: linear-gradient(135deg, var(--anniv-purple-light), #E1BEE7);
+  color: #7B1FA2;
+}
+
+.anniv-category__icon {
+  font-size: 30px;
+}
+
+.anniv-category__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.anniv-category__note {
+  font-size: 13px;
+  color: var(--anniv-text-light);
+  margin-top: 16px;
+  padding-left: 8px;
+  border-left: 3px solid var(--anniv-green-light);
+}
+
+/* カード */
+.anniv-card {
+  background: var(--anniv-white);
+  border-radius: var(--anniv-radius);
+  padding: 20px;
+  box-shadow: var(--anniv-shadow);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  border-left: 4px solid transparent;
+  position: relative;
+}
+
+/* カテゴリーごとにカードの左ボーダー色を変える */
+.anniv-category:nth-child(1) .anniv-card { border-left-color: var(--anniv-blue); }
+.anniv-category:nth-child(2) .anniv-card { border-left-color: var(--anniv-orange); }
+.anniv-category:nth-child(3) .anniv-card { border-left-color: var(--anniv-green); }
+.anniv-category:nth-child(4) .anniv-card { border-left-color: var(--anniv-purple); }
+
+.anniv-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.anniv-card:hover {
+  box-shadow: var(--anniv-shadow-lg);
+  transform: translateY(-3px);
+}
+
+.anniv-card--accent {
+  border-left: 4px solid var(--anniv-green);
+  background: linear-gradient(135deg, #E8F5E9, var(--anniv-white));
+}
+
+.anniv-card__header {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--anniv-green-dark);
+  margin-bottom: 8px;
+}
+
+.anniv-card__text {
+  font-size: 14px;
+  color: var(--anniv-text);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.anniv-card__note {
+  font-size: 12px;
+  color: var(--anniv-pink);
+  margin-top: 8px;
+}
+
+/* ----------------------------------------
+   わくわくイベントセクション
+   ---------------------------------------- */
+.anniv-events {
+  background:
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 30px,
+      rgba(255, 152, 0, 0.03) 30px,
+      rgba(255, 152, 0, 0.03) 32px
+    ),
+    linear-gradient(180deg, #FFF3E0 0%, #FFFDE7 50%, #FFF8E1 100%);
+  position: relative;
+}
+
+.anniv-events__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+  margin-bottom: 48px;
+}
+
+/* イベントカード */
+.anniv-event-card {
+  position: relative;
+  background: var(--anniv-white);
+  border-radius: var(--anniv-radius-lg);
+  padding: 28px 24px;
+  box-shadow: var(--anniv-shadow);
+  border: 2px solid transparent;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.anniv-event-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.anniv-event-card:hover {
+  border-color: var(--anniv-orange);
+  box-shadow: var(--anniv-shadow-lg);
+}
+
+/* 虹色回転ボーダー（共通） */
+.anniv-rainbow-border {
+  position: relative;
+  border: none !important;
+  z-index: 0;
+}
+
+.anniv-rainbow-border::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  background: conic-gradient(
+    from 0deg,
+    var(--anniv-red),
+    var(--anniv-orange),
+    var(--anniv-yellow),
+    var(--anniv-green),
+    var(--anniv-blue),
+    var(--anniv-purple),
+    var(--anniv-pink),
+    var(--anniv-red)
+  );
+  border-radius: calc(var(--anniv-radius-lg) + 3px);
+  z-index: -2;
+  animation: annivRainbowSpin 4s linear infinite;
+}
+
+.anniv-rainbow-border::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  right: 2px;
+  bottom: 2px;
+  border-radius: calc(var(--anniv-radius-lg) - 0px);
+  z-index: -1;
+}
+
+@keyframes annivRainbowSpin {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
+}
+
+.anniv-event-card--featured {
+  background: linear-gradient(135deg, #FFF3E0, #FFECB3);
+  box-shadow: 0 4px 24px rgba(255, 152, 0, 0.25);
+}
+
+.anniv-event-card--featured::after {
+  background: linear-gradient(135deg, #FFF3E0, #FFECB3);
+}
+
+.anniv-event-card--highlight {
+  background: linear-gradient(135deg, #FCE4EC, #F8BBD0);
+  box-shadow: 0 4px 24px rgba(233, 30, 99, 0.2);
+}
+
+.anniv-event-card--highlight::after {
+  background: linear-gradient(135deg, #FCE4EC, #F8BBD0);
+}
+
+.anniv-event-card__ribbon {
+  position: absolute;
+  top: -1px;
+  right: 20px;
+  background: linear-gradient(135deg, var(--anniv-red), #FF5252);
+  color: var(--anniv-white);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 6px 16px 8px;
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 3px 10px rgba(244, 67, 54, 0.3);
+  animation: annivRibbonPulse 2s ease infinite;
+}
+
+@keyframes annivRibbonPulse {
+  0%, 100% { box-shadow: 0 3px 10px rgba(244, 67, 54, 0.3); }
+  50% { box-shadow: 0 3px 20px rgba(244, 67, 54, 0.5); }
+}
+
+.anniv-event-card__title {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--anniv-text);
+  margin: 0 0 8px;
+}
+
+.anniv-event-card__subtitle {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--anniv-pink);
+  margin: 0 0 12px;
+}
+
+.anniv-event-card__time {
+  display: inline-block;
+  background: var(--anniv-green);
+  color: var(--anniv-white);
+  font-size: 14px;
+  font-weight: 700;
+  padding: 4px 16px;
+  border-radius: 50px;
+  margin-bottom: 12px;
+}
+
+.anniv-event-card__text {
+  font-size: 14px;
+  color: var(--anniv-text);
+  line-height: 1.8;
+  margin: 0;
+}
+
+.anniv-event-card__note {
+  font-size: 12px;
+  color: var(--anniv-text-light);
+  margin-top: 8px;
+}
+
+/* グルメ */
+.anniv-food {
+  background: linear-gradient(135deg, #FFF3E0, #FFECB3, #FFF8E1);
+  border-radius: var(--anniv-radius-lg);
+  padding: 40px 32px;
+  border: 2px solid rgba(255, 152, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.anniv-food::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--anniv-orange), var(--anniv-yellow), var(--anniv-coral), var(--anniv-orange));
+  background-size: 200% auto;
+  animation: annivRainbowLine 3s linear infinite;
+}
+
+.anniv-food__title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--anniv-text);
+  margin: 0 0 24px;
+  text-align: center;
+}
+
+.anniv-food__title-icon {
+  font-size: 32px;
+}
+
+.anniv-food__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.anniv-food__item {
+  background: var(--anniv-white);
+  border-radius: var(--anniv-radius);
+  padding: 20px;
+  text-align: center;
+  box-shadow: var(--anniv-shadow);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.anniv-food__item.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.anniv-food__item-name {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--anniv-text);
+  margin-bottom: 4px;
+}
+
+.anniv-food__item-detail {
+  font-size: 14px;
+  color: var(--anniv-text);
+  line-height: 1.6;
+}
+
+.anniv-food__item-note {
+  font-size: 12px;
+  color: var(--anniv-pink);
+  margin-top: 4px;
+  font-weight: 600;
+}
+
+/* ----------------------------------------
+   特売情報セクション
+   ---------------------------------------- */
+.anniv-sales {
+  background:
+    radial-gradient(circle, rgba(233, 30, 99, 0.05) 1px, transparent 1px),
+    radial-gradient(circle, rgba(233, 30, 99, 0.04) 1px, transparent 1px),
+    linear-gradient(180deg, var(--anniv-pink-light) 0%, #FFF0F5 50%, var(--anniv-white) 100%);
+  background-size: 20px 20px, 40px 40px, 100% 100%;
+  background-position: 0 0, 10px 10px, 0 0;
+}
+
+.anniv-sales__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+/* 特売カード */
+.anniv-sale-card {
+  position: relative;
+  background: var(--anniv-white);
+  border-radius: var(--anniv-radius);
+  padding: 24px;
+  box-shadow: var(--anniv-shadow);
+  border: 1px solid #e0e0e0;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s ease;
+}
+
+.anniv-sale-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.anniv-sale-card:hover {
+  box-shadow: var(--anniv-shadow-lg);
+}
+
+.anniv-sale-card--limited {
+  border: none;
+}
+
+.anniv-sale-card--limited::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  background: conic-gradient(
+    from 0deg,
+    var(--anniv-red),
+    var(--anniv-orange),
+    var(--anniv-yellow),
+    var(--anniv-green),
+    var(--anniv-blue),
+    var(--anniv-purple),
+    var(--anniv-pink),
+    var(--anniv-red)
+  );
+  border-radius: calc(var(--anniv-radius) + 3px);
+  z-index: -2;
+  animation: annivRainbowSpin 4s linear infinite;
+}
+
+.anniv-sale-card--limited::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  right: 2px;
+  bottom: 2px;
+  background: var(--anniv-white);
+  border-radius: calc(var(--anniv-radius) - 0px);
+  z-index: -1;
+}
+
+.anniv-sale-card--price {
+  border-color: var(--anniv-orange);
+  border-width: 2px;
+}
+
+.anniv-sale-card--market {
+  background: linear-gradient(180deg, #E8F5E9 0%, var(--anniv-white) 30%);
+  border: none;
+}
+
+.anniv-sale-card--market::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  background: conic-gradient(
+    from 90deg,
+    var(--anniv-green),
+    var(--anniv-teal),
+    var(--anniv-blue),
+    var(--anniv-green-dark),
+    var(--anniv-yellow),
+    var(--anniv-green)
+  );
+  border-radius: calc(var(--anniv-radius) + 3px);
+  z-index: -2;
+  animation: annivRainbowSpin 4s linear infinite;
+}
+
+.anniv-sale-card--market::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  right: 2px;
+  bottom: 2px;
+  background: linear-gradient(180deg, #E8F5E9 0%, var(--anniv-white) 30%);
+  border-radius: calc(var(--anniv-radius) - 0px);
+  z-index: -1;
+}
+
+/* スターバーストタグ */
+.anniv-sale-card__tag {
+  display: inline-block;
+  color: var(--anniv-white);
+  font-size: 13px;
+  font-weight: 800;
+  padding: 10px 18px;
+  margin-bottom: 12px;
+  position: relative;
+  background: linear-gradient(135deg, var(--anniv-red), #FF5252);
+  clip-path: polygon(
+    50% 0%, 63% 10%, 80% 2%, 78% 20%, 98% 25%,
+    88% 40%, 100% 50%, 88% 60%, 98% 75%,
+    78% 80%, 80% 98%, 63% 90%, 50% 100%,
+    37% 90%, 20% 98%, 22% 80%, 2% 75%,
+    12% 60%, 0% 50%, 12% 40%, 2% 25%,
+    22% 20%, 20% 2%, 37% 10%
+  );
+  border-radius: 0;
+  box-shadow: none;
+  animation: annivTagBounce 2s ease infinite;
+  letter-spacing: 0.05em;
+}
+
+@keyframes annivTagBounce {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  25% { transform: scale(1.08) rotate(-2deg); }
+  75% { transform: scale(1.08) rotate(2deg); }
+}
+
+.anniv-sale-card__title {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--anniv-green-dark);
+  margin: 0 0 12px;
+}
+
+.anniv-sale-card__text {
+  font-size: 14px;
+  color: var(--anniv-text);
+  line-height: 1.7;
+  margin: 0 0 8px;
+}
+
+.anniv-sale-card__sub {
+  font-size: 13px;
+  color: var(--anniv-text-light);
+  margin: 8px 0 0;
+}
+
+.anniv-sale-card__list {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 0;
+}
+
+.anniv-sale-card__list li {
+  position: relative;
+  padding-left: 20px;
+  font-size: 14px;
+  color: var(--anniv-text);
+  line-height: 1.8;
+}
+
+.anniv-sale-card__list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--anniv-green);
+  font-weight: 700;
+}
+
+.anniv-sale-card__list li strong {
+  color: var(--anniv-pink);
+  font-weight: 700;
+}
+
+/* 価格表示 */
+.anniv-sale-card__price {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+  padding: 16px;
+  background: linear-gradient(135deg, #FFF3E0, #FFECB3);
+  border-radius: var(--anniv-radius);
+  border: 2px dashed var(--anniv-orange);
+  position: relative;
+}
+
+.anniv-sale-card__price-old {
+  font-size: 15px;
+  color: var(--anniv-text-light);
+  text-decoration: line-through;
+}
+
+.anniv-sale-card__price-arrow {
+  font-size: 22px;
+  color: var(--anniv-red);
+  font-weight: 900;
+  animation: annivArrowBounce 1s ease infinite;
+}
+
+@keyframes annivArrowBounce {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(4px); }
+}
+
+.anniv-sale-card__price-new {
+  font-size: 17px;
+  color: var(--anniv-white);
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--anniv-red), #D32F2F);
+  padding: 6px 16px;
+  border-radius: 50px;
+  box-shadow: 0 3px 10px rgba(244, 67, 54, 0.3);
+}
+
+.anniv-sale-card__price-new strong {
+  font-size: 22px;
+  color: var(--anniv-white);
+}
+
+/* ----------------------------------------
+   チラシセクション
+   ---------------------------------------- */
+.anniv-flyer {
+  background: var(--anniv-bg-light);
+  text-align: center;
+}
+
+.anniv-flyer__image-wrap {
+  max-width: 700px;
+  margin: 0 auto;
+  box-shadow: var(--anniv-shadow-lg);
+  border-radius: var(--anniv-radius);
+  overflow: hidden;
+}
+
+.anniv-flyer__image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ----------------------------------------
+   店舗情報・アクセス
+   ---------------------------------------- */
+.anniv-access {
+  background:
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 40px,
+      rgba(0, 150, 136, 0.03) 40px,
+      rgba(0, 150, 136, 0.03) 42px
+    ),
+    linear-gradient(180deg, var(--anniv-teal-light) 0%, var(--anniv-white) 100%);
+}
+
+.anniv-access__content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.anniv-access__store-name {
+  margin-bottom: 24px;
+}
+
+.anniv-access__brand {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--anniv-green);
+  letter-spacing: 0.1em;
+  margin-bottom: 4px;
+}
+
+.anniv-access__store-name h3 {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--anniv-text);
+  margin: 0 0 4px;
+}
+
+.anniv-access__former {
+  font-size: 13px;
+  color: var(--anniv-text-light);
+  margin: 0;
+}
+
+.anniv-access__details {
+  margin: 0 0 24px;
+}
+
+.anniv-access__detail-row {
+  display: flex;
+  padding: 12px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.anniv-access__detail-row dt {
+  min-width: 120px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--anniv-green-dark);
+}
+
+.anniv-access__detail-row dd {
+  font-size: 14px;
+  color: var(--anniv-text);
+  margin: 0;
+}
+
+.anniv-access__detail-row dd a {
+  color: var(--anniv-green-dark);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.anniv-access__detail-row dd a:hover {
+  text-decoration: underline;
+}
+
+.anniv-access__sns {
+  display: flex;
+  gap: 16px;
+}
+
+.anniv-access__sns-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform var(--anniv-transition), box-shadow var(--anniv-transition);
+}
+
+.anniv-access__sns-link:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--anniv-shadow);
+}
+
+.anniv-access__sns-link--instagram {
+  background: linear-gradient(135deg, #833AB4, #E1306C, #F77737);
+  color: var(--anniv-white);
+}
+
+.anniv-access__sns-link--line {
+  background: #06C755;
+  color: var(--anniv-white);
+}
+
+.anniv-access__sns-link img {
+  filter: brightness(0) invert(1);
+}
+
+.anniv-access__map {
+  border-radius: var(--anniv-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--anniv-shadow);
+}
+
+.anniv-access__map iframe {
+  display: block;
+}
+
+/* ----------------------------------------
+   CTA セクション
+   ---------------------------------------- */
+.anniv-cta {
+  background: var(--anniv-green-dark);
+  padding: 64px 20px;
+  text-align: center;
+}
+
+.anniv-cta__inner {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.anniv-cta__title {
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--anniv-white);
+  margin: 0 0 16px;
+}
+
+.anniv-cta__date {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0 0 32px;
+  line-height: 1.8;
+}
+
+.anniv-cta__date strong {
+  font-size: 22px;
+  color: var(--anniv-white);
+}
+
+.anniv-cta__buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.anniv-cta__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 320px;
+  padding: 16px 32px;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform var(--anniv-transition), box-shadow var(--anniv-transition);
+}
+
+.anniv-cta__button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.anniv-cta__button--instagram {
+  background: var(--anniv-white);
+  color: #4a148c;
+  font-weight: 800;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.anniv-cta__button--tel {
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid var(--anniv-white);
+  color: var(--anniv-white);
+  backdrop-filter: blur(4px);
+}
+
+/* ----------------------------------------
+   PC非表示ユーティリティ
+   ---------------------------------------- */
+.anniv-u-pc {
+  display: none;
+}
+
+/* ----------------------------------------
+   レスポンシブ
+   ---------------------------------------- */
+
+/* タブレット以上 */
+@media (min-width: 769px) {
+  .anniv-u-pc {
+    display: inline;
+  }
+
+  .anniv-hero__store {
+    font-size: 20px;
+  }
+
+  .anniv-hero__title-num {
+    font-size: 180px;
+  }
+
+  .anniv-hero__title-text {
+    font-size: 64px;
+  }
+
+  .anniv-hero__date-month {
+    font-size: 72px;
+  }
+
+  .anniv-hero__date-days {
+    font-size: 52px;
+  }
+
+  .anniv-hero__date-days small {
+    font-size: 24px;
+  }
+
+  .anniv-hero__date-time {
+    font-size: 28px;
+  }
+
+  .anniv-section-title__ja {
+    font-size: 32px;
+  }
+
+  .anniv-nav__link {
+    font-size: 14px;
+    padding: 0 24px;
+  }
+}
+
+/* スマホ */
+@media (max-width: 768px) {
+  :root {
+    --anniv-header-h: 60px;
+    --anniv-nav-h: 42px;
+  }
+
+  .anniv-hero {
+    min-height: 100svh;
+  }
+
+  .anniv-hero__content {
+    padding: 20px 16px;
+  }
+
+  .anniv-hero__store {
+    font-size: 13px;
+  }
+
+  .anniv-hero__title-num {
+    font-size: 80px;
+  }
+
+  .anniv-hero__title-text {
+    font-size: 32px;
+  }
+
+  .anniv-hero__date-month {
+    font-size: 40px;
+  }
+
+  .anniv-hero__date-days {
+    font-size: 28px;
+  }
+
+  .anniv-hero__date-days small {
+    font-size: 16px;
+  }
+
+  .anniv-hero__date-time {
+    font-size: 18px;
+  }
+
+  .anniv-hero__badges {
+    gap: 8px;
+  }
+
+  .anniv-hero__badge {
+    font-size: 12px;
+    padding: 6px 14px;
+  }
+
+  /* 概要 */
+  .anniv-overview {
+    padding: 48px 16px;
+  }
+
+  .anniv-overview__text {
+    font-size: 14px;
+    text-align: left;
+  }
+
+  .anniv-overview__highlights {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  /* セクション */
+  .anniv-section {
+    padding: 48px 16px;
+  }
+
+  .anniv-section-title {
+    padding: 16px 20px;
+  }
+
+  .anniv-section-title::before,
+  .anniv-section-title::after {
+    font-size: 16px;
+  }
+
+  .anniv-section-title__ja {
+    font-size: 22px;
+  }
+
+  /* カテゴリー */
+  .anniv-category__title {
+    font-size: 16px;
+    padding: 10px 12px;
+  }
+
+  /* ウェーブ */
+  .anniv-wave svg {
+    height: 30px;
+  }
+
+  .anniv-category__grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  /* イベント */
+  .anniv-events__grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .anniv-event-card {
+    padding: 24px 20px;
+  }
+
+  /* グルメ */
+  .anniv-food {
+    padding: 24px 16px;
+  }
+
+  .anniv-food__grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  /* 特売 */
+  .anniv-sales__grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .anniv-sale-card__price {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .anniv-sale-card__price-arrow {
+    display: none;
+  }
+
+  .anniv-sale-card__price-new {
+    font-size: 15px;
+    padding: 5px 14px;
+  }
+
+  /* アクセス */
+  .anniv-access__content {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .anniv-access__detail-row {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .anniv-access__detail-row dt {
+    min-width: auto;
+    font-size: 12px;
+  }
+
+  .anniv-access__sns {
+    flex-direction: column;
+  }
+
+  .anniv-access__map iframe {
+    height: 300px;
+  }
+
+  /* CTA */
+  .anniv-cta {
+    padding: 48px 16px;
+  }
+
+  .anniv-cta__title {
+    font-size: 22px;
+  }
+
+  .anniv-cta__date {
+    font-size: 16px;
+  }
+
+  .anniv-cta__date strong {
+    font-size: 18px;
+  }
+
+  .anniv-cta__button {
+    min-width: 100%;
+    font-size: 14px;
+    padding: 14px 24px;
+  }
+
+  /* ナビ */
+  .anniv-nav__inner {
+    gap: 8px;
+    padding: 0 12px;
+  }
+
+  .anniv-nav__home-text {
+    font-size: 11px;
+  }
+
+  .anniv-nav__divider {
+    height: 16px;
+  }
+
+  .anniv-nav__list {
+    overflow-x: auto;
+    justify-content: flex-start;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .anniv-nav__list::-webkit-scrollbar {
+    display: none;
+  }
+
+  .anniv-nav__link {
+    font-size: 12px;
+    padding: 0 12px;
+  }
+
+  /* フォトバナー */
+  .anniv-photo-banner {
+    height: 200px;
+  }
+
+  .anniv-photo-banner__text {
+    font-size: 22px;
+  }
+
+  .anniv-photo-banner__sub {
+    font-size: 13px;
+  }
+}
+
+/* ----------------------------------------
+   印刷スタイル
+   ---------------------------------------- */
+@media print {
+  .anniv-nav,
+  .anniv-hero__scroll,
+  .anniv-hero__petals,
+  .anniv-hero__confetti,
+  .anniv-hero__bg-image,
+  .anniv-hero__bg-overlay,
+  .anniv-wave,
+  .anniv-photo-banner,
+  .anniv-cta__buttons {
+    display: none !important;
+  }
+
+
+
+  .anniv-hero {
+    min-height: auto;
+    padding: 40px 20px;
+  }
+
+  .anniv-card,
+  .anniv-event-card,
+  .anniv-sale-card,
+  .anniv-food__item,
+  .anniv-overview__highlight {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

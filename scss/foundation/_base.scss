@@ -1,0 +1,11 @@
+/* ========================================
+   Base
+   ======================================== */
+
+body {
+  background-color: $color-white;
+}
+
+body.is-menu-open {
+  overflow: hidden;
+}

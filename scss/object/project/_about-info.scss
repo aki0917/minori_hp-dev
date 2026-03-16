@@ -1,0 +1,82 @@
+/* ========================================
+   About Info (Company Information)
+   ======================================== */
+
+.p-about-info {
+  padding: 40px 0;
+  background-color: $color-white;
+
+  &__inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 $spacing-medium;
+
+    @include up(tab) {
+      padding: 0 $spacing-large;
+    }
+
+    @include up(pc) {
+      padding: 0 $spacing-xl;
+    }
+  }
+
+  &__title {
+    margin-bottom: $spacing-xl;
+  }
+
+  &__content {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  &__table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+    max-width: 800px;
+
+    th,
+    td {
+      padding: $spacing-medium;
+      text-align: left;
+      vertical-align: top;
+      border-bottom: 1px solid $color-gray;
+
+      @include up(tab) {
+        padding: $spacing-large;
+      }
+    }
+
+    th {
+      width: 30%;
+      font-weight: 600;
+      color: $color-secondary;
+      background-color: $color-gray-light;
+
+      @include up(tab) {
+        width: 25%;
+      }
+    }
+
+    td {
+      color: $color-text;
+      line-height: 1.8;
+    }
+
+    tr:last-child {
+      th,
+      td {
+        border-bottom: none;
+      }
+    }
+  }
+
+  @include up(tab) {
+    padding: 56px 0;
+  }
+
+  @include up(pc) {
+    padding: 72px 0;
+  }
+}
+

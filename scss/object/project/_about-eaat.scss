@@ -1,0 +1,153 @@
+/* ========================================
+   About E-E-A-T (運営者紹介・強み・価値)
+   ======================================== */
+
+.p-about-eaat {
+  padding: 60px 0;
+  background-color: $color-bg1;
+  position: relative;
+  overflow: hidden;
+
+  &__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 120%;
+    z-index: 0;
+    overflow: hidden;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.85);
+      z-index: 1;
+    }
+  }
+
+  &__bg picture {
+    position: absolute;
+    top: -10%;
+    left: 0;
+    width: 100%;
+    height: 120%;
+  }
+
+  &__bg-image {
+    position: absolute;
+    top: -10%;
+    left: 0;
+    width: 100%;
+    height: 120%;
+    object-fit: cover;
+    object-position: center;
+    will-change: transform;
+  }
+
+  &__inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 $spacing-medium;
+    position: relative;
+    z-index: 2;
+
+    @include up(tab) {
+      padding: 0 $spacing-large;
+    }
+
+    @include up(pc) {
+      padding: 0 $spacing-xl;
+    }
+  }
+
+  &__item {
+    margin-bottom: $spacing-xxl;
+    padding: $spacing-xl $spacing-medium;
+    background-color: $color-white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @include up(tab) {
+      padding: $spacing-xl $spacing-large;
+      margin-bottom: $spacing-xxxl;
+    }
+
+    @include up(pc) {
+      padding: $spacing-xxl $spacing-xl;
+    }
+  }
+
+  &__subtitle {
+    font-size: 20px;
+    font-weight: 700;
+    color: $color-secondary;
+    letter-spacing: 0.04em;
+    line-height: 1.5;
+    margin-bottom: $spacing-large;
+    text-align: center;
+    position: relative;
+    padding-bottom: $spacing-medium;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 48px;
+      height: 2px;
+      margin: $spacing-small auto 0;
+      background: $color-secondary;
+      border-radius: 1px;
+    }
+
+    @include up(tab) {
+      font-size: 24px;
+      margin-bottom: $spacing-xl;
+      padding-bottom: $spacing-large;
+    }
+
+    @include up(pc) {
+      font-size: 28px;
+    }
+  }
+
+  &__text {
+    color: $color-text;
+    line-height: 2;
+    font-size: $font-size-small;
+    letter-spacing: 0.02em;
+    margin-bottom: $spacing-large;
+    font-weight: 400;
+    text-align: left;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @include up(tab) {
+      font-size: $font-size-base;
+      line-height: 2.2;
+      margin-bottom: $spacing-xl;
+    }
+
+    @include up(pc) {
+      font-size: $font-size-large;
+      line-height: 2.4;
+    }
+  }
+
+  @include up(tab) {
+    padding: 80px 0;
+  }
+
+  @include up(pc) {
+    padding: 100px 0;
+  }
+}
+

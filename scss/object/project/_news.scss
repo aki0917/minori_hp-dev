@@ -1,0 +1,283 @@
+/* ========================================
+   News Section (WP-friendly)
+   ======================================== */
+
+.p-news {
+  padding: 80px 0 56px;
+
+  @include up(tab) {
+    padding: 100px 0 80px;
+  }
+
+  @include up(pc) {
+    padding: 200px 0 100px;
+  }
+
+  &__inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 $spacing-medium; 
+
+    @include up(tab) { padding: 0 $spacing-large; } 
+    @include up(pc) { padding: 0 $spacing-xl; }   
+    @include up(pc-large) { padding: 0 $spacing-xxl; }  
+  }
+
+  &__title {
+    margin-top: $spacing-large;
+
+    @include up(tab) {
+      margin-top: $spacing-xl;
+    }
+
+    @include up(pc) {
+      margin-top: $spacing-xxl;
+    }
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-small;
+    margin-top: $spacing-medium;
+
+    @include up(pc) {
+      margin-top: $spacing-xxl;
+    }
+  }
+
+  &__item {
+    border-bottom: 1px solid $color-gray;
+  }
+
+  &__link {
+    display: grid;
+    grid-template-columns: 8px auto auto 1fr; 
+    align-items: center;
+    column-gap: $spacing-medium;
+    padding: 12px 8px; 
+    color: $color-text;
+    @include hover-effect;
+    position: relative;
+
+    &::before {
+      content: '';
+      grid-column: 1 / 2;
+      justify-self: stretch;
+      width: 4px;
+      height: 24px;
+      background: rgba($color-primary, 0.35);
+      border-radius: 2px;
+    }
+
+    &:hover {
+      color: $color-primary;
+      background: rgba($color-primary, 0.05);
+      border-radius: 8px;
+    }
+  }
+
+  &__date {
+    font-size: 8px;
+    color: $color-text-light;
+    white-space: nowrap;
+    grid-column: 2 / 3;
+
+    @include up(pc) {
+      font-size: $font-size-small;
+    }
+  }
+
+  &__cat {
+    display: inline-block;
+    font-size: 8px;
+    color: $color-primary;
+    background-color: rgba($color-primary, 0.1);
+    border: 1px solid rgba($color-primary, 0.3);
+    padding: 2px 8px;
+    border-radius: 999px;
+    white-space: nowrap;
+    grid-column: 3 / 4;
+
+    @include up(pc) {
+      font-size: $font-size-small;
+    }
+  }
+
+  &__text {
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 1.7;
+    max-width: 100%;
+    grid-column: 4 / 5;
+
+    @include up(tab) {
+      font-size: 15px;
+      line-height: 1.8;
+      max-width: 80ch;
+    }
+
+    @include up(pc) {
+      font-size: 16px;
+      line-height: 1.9;
+    }
+  }
+
+  &__more {
+    margin-top: $spacing-large;
+    text-align: center;
+  }
+
+  &__container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-xl;
+
+    @include up(pc) {
+      grid-template-columns: 1fr 300px;
+      gap: $spacing-xxl;
+    }
+  }
+
+  &__main {
+    min-width: 0;
+  }
+
+  &__sidebar {
+    min-width: 0;
+  }
+}
+
+/* ========================================
+   News Sidebar
+   ======================================== */
+
+.p-news-sidebar {
+  &__widget {
+    background: $color-gray-light;
+    border-radius: 8px;
+    padding: $spacing-large;
+    margin-bottom: $spacing-large;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__title {
+    font-size: $font-size-large;
+    font-weight: 700;
+    color: $color-secondary;
+    margin-bottom: $spacing-medium;
+    padding-bottom: $spacing-small;
+    border-bottom: 2px solid rgba($color-primary, 0.3);
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 60px;
+      height: 2px;
+      background: $color-primary;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-small;
+  }
+
+  &__item {
+    border-bottom: 1px solid rgba($color-gray, 0.5);
+    padding-bottom: $spacing-small;
+
+    &:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+  }
+
+  &__link {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-small;
+    color: $color-text;
+    @include hover-effect;
+    padding: $spacing-small 0;
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+
+  &__date {
+    font-size: $font-size-small;
+    color: $color-text-light;
+  }
+
+  &__text {
+    font-size: $font-size-base;
+    line-height: 1.6;
+    font-weight: 500;
+  }
+
+  &__widget:first-child &__link,
+  &__widget:last-child &__link {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: $spacing-small 0;
+
+    &::after {
+      content: '›';
+      color: $color-primary;
+      font-size: 20px;
+      font-weight: bold;
+      transition: transform 0.3s ease;
+    }
+
+    &:hover::after {
+      transform: translateX(4px);
+    }
+  }
+
+  &__social {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-medium;
+  }
+
+  &__social-link {
+    display: flex;
+    align-items: center;
+    gap: $spacing-medium;
+    padding: $spacing-medium;
+    background: $color-white;
+    border-radius: 8px;
+    border: 1px solid rgba($color-primary, 0.2);
+    color: $color-text;
+    @include hover-effect;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: rgba($color-primary, 0.1);
+      border-color: $color-primary;
+      color: $color-primary;
+      transform: translateX(4px);
+    }
+
+    img {
+      flex-shrink: 0;
+    }
+
+    span {
+      font-size: $font-size-base;
+      font-weight: 600;
+    }
+  }
+}
+
+

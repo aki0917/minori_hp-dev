@@ -1,0 +1,19 @@
+/* ========================================
+   Originals (みのりオリジナル商品)
+   ======================================== */
+
+.p-originals {
+  padding: 56px 0;
+  background-color: $color-white;
+
+  @include up(tab) { padding: 120px 0; }
+
+  &__inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 $spacing-medium;
+    @include up(tab) { padding: 0 $spacing-large; }
+    @include up(pc) { padding: 0 $spacing-xl; }
+    @include up(pc-large) { padding: 0 $spacing-xxl; }
+  }
+}

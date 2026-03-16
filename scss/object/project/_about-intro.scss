@@ -1,0 +1,150 @@
+/* ========================================
+   About Intro (Top)
+   ======================================== */
+
+.p-about-intro {
+  background-color: $color-bg1;
+  padding: 40px 0;
+
+  &__inner {
+    width: min(100%, 720px);
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  &__title {
+    font-size: 18px;
+    font-weight: 700;
+    color: $color-secondary;
+    letter-spacing: 0.04em;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  &__lead {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: $spacing-medium;
+    text-align: center;
+  }
+
+  &__text {
+    color: $color-text;
+    line-height: 1.9;
+    font-size: $font-size-xsmall;
+    letter-spacing: 0.02em;
+    margin: 0 auto;
+    padding-top: 24px;
+    font-weight: 500;
+  }
+
+  &__cta {
+    margin-top: $spacing-large;
+    text-align: center;
+  }
+
+  @include up(tab) {
+    padding: 56px 0;
+
+    &__inner {
+      width: min(100%, 880px);
+      padding: 0 32px;
+    }
+
+    &__title {
+      font-size: 26px;
+      margin-bottom: $spacing-large;
+    }
+
+    &__text {
+      font-size: 15px;
+      line-height: 2;
+      padding-top: 32px;
+      max-width: 72ch;
+    }
+  }
+
+  @include up(pc) {
+    padding: 72px 0;
+
+    &__inner {
+      width: min(100%, 1080px);
+      padding: 0 $spacing-xl;
+    }
+
+    &__title {
+      font-size: 30px;
+    }
+
+    &__text {
+      font-size: $font-size-large;
+      line-height: 2.1;
+      padding-top: 40px;
+    }
+  }
+
+  @include up(pc-large) {
+    padding: 88px 0;
+
+    &__inner {
+      width: min(100%, 1280px);
+      padding: 0 $spacing-xxl;
+    }
+
+    &__title {
+      font-size: 32px;
+    }
+
+    &__text {
+      line-height: 2.2;
+      padding-top: 48px;
+    }
+  }
+}
+
+.c-button {
+  display: inline-block;
+  padding: 5px 7px;
+  border-radius: 6px;
+  background-color: $color-primary;
+  color: $color-white;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-align: center;
+  font-size: $font-size-small;
+
+  @include up(tab) {
+    padding: 10px 20px;
+    font-size: $font-size-base;
+  }
+
+  @include up(pc) {
+    padding: 12px 24px;
+  }
+
+  &:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+  }
+
+  &--large {
+    padding: 12px 24px;
+    font-size: $font-size-base;
+    border-radius: 8px;
+    font-weight: 700;
+
+    @include up(tab) {
+      padding: 16px 32px;
+      font-size: $font-size-large;
+    }
+
+    @include up(pc) {
+      padding: 18px 40px;
+      font-size: 20px;
+    }
+  }
+}
+
+

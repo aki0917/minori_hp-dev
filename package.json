@@ -1,0 +1,20 @@
+{
+  "name": "minorihp",
+  "version": "1.0.0",
+  "description": "農家の店みのりFARM & GARDEN 公式サイト",
+  "scripts": {
+    "dev": "live-server --port=8000 --open=/index.html",
+    "start": "http-server -p 8000 -o",
+    "compile:scss": "sass scss/style.scss css/style.css",
+    "compile:cls-fix": "sass scss/cls-fix.scss css/cls-fix.css",
+    "compile:all": "sass scss/style.scss css/style.css && sass scss/cls-fix.scss css/cls-fix.css",
+    "watch:scss": "sass --watch scss/style.scss:css/style.css scss/cls-fix.scss:css/cls-fix.css",
+    "sync": "bash sync-theme.sh"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "live-server": "^1.2.2",
+    "sass": "^1.77.0"
+  }
+}
+

@@ -1,0 +1,180 @@
+/* ========================================
+   Shop Section
+   ======================================== */
+
+.p-shop {
+  padding: 80px 0 56px;
+
+  @include up(tab) {
+    padding: 100px 0 80px;
+  }
+
+  @include up(pc) {
+    padding: 120px 0 100px;
+  }
+
+  &__inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 $spacing-medium;
+
+    @include up(tab) { padding: 0 $spacing-large; }
+    @include up(pc) { padding: 0 $spacing-xl; }
+    @include up(pc-large) { padding: 0 $spacing-xxl; }
+  }
+
+  &__title {
+    margin-top: $spacing-large;
+
+    @include up(tab) {
+      margin-top: $spacing-xl;
+    }
+
+    @include up(pc) {
+      margin-top: $spacing-xxl;
+    }
+  }
+
+  &__description {
+    text-align: center;
+    color: $color-text-light;
+    font-size: $font-size-small;
+    margin-top: $spacing-medium;
+
+    @include up(tab) {
+      font-size: $font-size-base;
+      margin-top: $spacing-large;
+    }
+
+    @include up(pc) {
+      margin-top: $spacing-xl;
+    }
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-large;
+    margin-top: $spacing-xl;
+
+    @include up(tab) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: $spacing-xl;
+    }
+
+    @include up(pc) {
+      grid-template-columns: repeat(3, 1fr);
+      gap: $spacing-xxl;
+      margin-top: $spacing-xxl;
+    }
+  }
+
+  &__item {
+  }
+
+  &__card {
+    background: $color-white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba($color-text, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba($color-text, 0.15);
+    }
+  }
+
+  &__image-wrapper {
+    position: relative;
+    width: 100%;
+    padding-top: 66.67%; // 3:2 アスペクト比
+    overflow: hidden;
+    background: $color-gray-light;
+
+    picture {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+  }
+
+  &__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+
+    .p-shop__card:hover & {
+      transform: scale(1.05);
+    }
+  }
+
+  &__content {
+    padding: $spacing-large;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__name {
+    font-size: $font-size-large;
+    font-weight: 600;
+    color: $color-secondary;
+    margin-bottom: $spacing-medium;
+    line-height: 1.4;
+
+    @include up(pc) {
+      font-size: 20px;
+    }
+  }
+
+  &__address {
+    font-size: $font-size-small;
+    color: $color-text-light;
+    line-height: 1.8;
+    margin-bottom: $spacing-small;
+
+    @include up(pc) {
+      font-size: $font-size-base;
+    }
+  }
+
+  &__tel {
+    font-size: $font-size-small;
+    color: $color-text;
+    margin-bottom: $spacing-small;
+
+    @include up(pc) {
+      font-size: $font-size-base;
+    }
+
+    span {
+      color: $color-secondary;
+    }
+  }
+
+  &__open {
+    font-size: $font-size-xsmall;
+    color: $color-text-light;
+    margin-top: auto;
+    padding-top: $spacing-medium;
+    border-top: 1px solid $color-gray;
+
+    @include up(pc) {
+      font-size: $font-size-small;
+    }
+  }
+}
+

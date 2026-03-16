@@ -1,0 +1,335 @@
+/* ========================================
+   みのりサービス事業 - Flower Design
+   ======================================== */
+
+.p-services {
+  padding: $spacing-xxxl 0;
+  background-color: $color-gray-light;
+
+  &__inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 $spacing-medium;
+
+    @include up(tab) {
+      padding: 0 $spacing-large;
+    }
+    @include up(pc) {
+      padding: 0 $spacing-xl;
+    }
+    @include up(pc-large) {
+      padding: 0 $spacing-xxl;
+    }
+  }
+
+  &__flower {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    aspect-ratio: auto;
+    min-height: auto;
+
+    @include up(tab) {
+      aspect-ratio: 1 / 1;
+      min-height: 600px;
+    }
+    @include up(pc) {
+      min-height: 800px;
+    }
+  }
+
+  &__center {
+    position: static;
+    transform: none;
+    margin: 0 auto $spacing-large;
+    z-index: 10;
+    width: 180px;
+    height: 180px;
+    background: linear-gradient(135deg, $color-primary 0%, $color-secondary 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+
+    @include up(tab) {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      margin: 0;
+      width: 320px;
+      height: 320px;
+    }
+    @include up(pc) {
+      width: 360px;
+      height: 360px;
+    }
+  }
+
+  &__title {
+    color: $color-white;
+    font-size: 13px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1.5; 
+    padding: $spacing-medium;
+
+    @include up(tab) {
+      font-size: 20px;
+      line-height: 1.6;
+    }
+
+    @include up(pc) {
+      font-size: 24px;
+      line-height: 1.6;
+    }
+  }
+
+  &__petals {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-medium;
+    padding: $spacing-large 0;
+    width: 100%;
+    margin: 0;
+
+    @include up(tab) {
+      position: relative;
+      display: block;
+      height: 100%;
+      padding: 0;
+      gap: 0;
+    }
+  }
+
+  &__petal {
+    position: static;
+    transform: none;
+    margin: $spacing-medium auto;
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    transition: transform 0.3s ease, z-index 0.3s ease;
+
+    @include up(tab) {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform-origin: 50% 50%;
+      margin: 0;
+      width: 160px;
+      height: 160px;
+      max-width: none;
+    }
+    @include up(pc) {
+      width: 180px;
+      height: 180px;
+    }
+
+    &:hover {
+      z-index: 20;
+    
+    }
+
+    &--1:hover {
+      @include up(tab) {
+        transform: translate(-50%, -50%) rotate(0deg) translateY(-240px) rotate(0deg) scale(1.15);
+      }
+      @include up(pc) {
+        transform: translate(-50%, -50%) rotate(0deg) translateY(-280px) rotate(0deg) scale(1.15);
+      }
+    }
+
+    &--2:hover {
+      @include up(tab) {
+        transform: translate(-50%, -50%) rotate(51.43deg) translateY(-240px) rotate(-51.43deg) scale(1.15);
+      }
+      @include up(pc) {
+        transform: translate(-50%, -50%) rotate(51.43deg) translateY(-280px) rotate(-51.43deg) scale(1.15);
+      }
+    }
+
+    &--3:hover {
+      @include up(tab) {
+        transform: translate(-50%, -50%) rotate(102.86deg) translateY(-240px) rotate(-102.86deg) scale(1.15);
+      }
+      @include up(pc) {
+        transform: translate(-50%, -50%) rotate(102.86deg) translateY(-280px) rotate(-102.86deg) scale(1.15);
+      }
+    }
+
+    &--4:hover {
+      @include up(tab) {
+        transform: translate(-50%, -50%) rotate(154.29deg) translateY(-240px) rotate(-154.29deg) scale(1.15);
+      }
+      @include up(pc) {
+        transform: translate(-50%, -50%) rotate(154.29deg) translateY(-280px) rotate(-154.29deg) scale(1.15);
+      }
+    }
+
+    &--5:hover {
+      @include up(tab) {
+        transform: translate(-50%, -50%) rotate(205.71deg) translateY(-240px) rotate(-205.71deg) scale(1.15);
+      }
+      @include up(pc) {
+        transform: translate(-50%, -50%) rotate(205.71deg) translateY(-280px) rotate(-205.71deg) scale(1.15);
+      }
+    }
+
+    &--6:hover {
+      @include up(tab) {
+        transform: translate(-50%, -50%) rotate(257.14deg) translateY(-240px) rotate(-257.14deg) scale(1.15);
+      }
+      @include up(pc) {
+        transform: translate(-50%, -50%) rotate(257.14deg) translateY(-280px) rotate(-257.14deg) scale(1.15);
+      }
+    }
+
+    &--7:hover {
+      @include up(tab) {
+        transform: translate(-50%, -50%) rotate(308.57deg) translateY(-240px) rotate(-308.57deg) scale(1.15);
+      }
+      @include up(pc) {
+        transform: translate(-50%, -50%) rotate(308.57deg) translateY(-280px) rotate(-308.57deg) scale(1.15);
+      }
+    }
+  }
+
+  &__petal-content {
+    width: 100%;
+    height: 100%;
+    background-color: $color-white;
+    border: 3px solid $color-primary;
+    border-radius: 16px;
+    padding: $spacing-large;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+    @include up(tab) {
+      border-radius: 50%;
+      padding: $spacing-medium;
+    }
+
+    @media (max-width: 768px) {
+      &:hover,
+      &:active {
+        background: linear-gradient(135deg, rgba($color-primary, 0.15) 0%, rgba($color-white, 1) 100%);
+        border-color: $color-secondary;
+        border-width: 4px;
+        box-shadow: 0 6px 20px rgba($color-secondary, 0.4);
+        transform: scale(1.02);
+      }
+    }
+
+    .p-services__petal:hover & {
+      @include up(tab) {
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+        border-color: $color-secondary;
+        background: linear-gradient(135deg, rgba($color-primary, 0.05) 0%, rgba($color-white, 1) 100%);
+      }
+    }
+  }
+
+  &__petal-title {
+    font-size: 14px;
+    font-weight: bold;
+    color: $color-secondary;
+    margin-bottom: $spacing-small;
+
+    @include up(tab) {
+      font-size: 16px;
+    }
+    @include up(pc) {
+      font-size: 17px;
+    }
+  }
+
+  &__petal-text {
+    font-size: 12px;
+    color: $color-text;
+    line-height: 1.7;
+    text-align: left;
+
+    @include up(tab) {
+      font-size: 12px;
+      line-height: 1.8;
+    }
+    @include up(pc) {
+      font-size: 13px;
+      line-height: 1.8;
+    }
+  }
+
+  &__petal--1 {
+    @include up(tab) {
+      transform: translate(-50%, -50%) rotate(0deg) translateY(-240px) rotate(0deg);
+    }
+    @include up(pc) {
+      transform: translate(-50%, -50%) rotate(0deg) translateY(-280px) rotate(0deg);
+    }
+  }
+
+  &__petal--2 {
+    @include up(tab) {
+      transform: translate(-50%, -50%) rotate(51.43deg) translateY(-240px) rotate(-51.43deg);
+    }
+    @include up(pc) {
+      transform: translate(-50%, -50%) rotate(51.43deg) translateY(-280px) rotate(-51.43deg);
+    }
+  }
+
+  &__petal--3 {
+    @include up(tab) {
+      transform: translate(-50%, -50%) rotate(102.86deg) translateY(-240px) rotate(-102.86deg);
+    }
+    @include up(pc) {
+      transform: translate(-50%, -50%) rotate(102.86deg) translateY(-280px) rotate(-102.86deg);
+    }
+  }
+
+  &__petal--4 {
+    @include up(tab) {
+      transform: translate(-50%, -50%) rotate(154.29deg) translateY(-240px) rotate(-154.29deg);
+    }
+    @include up(pc) {
+      transform: translate(-50%, -50%) rotate(154.29deg) translateY(-280px) rotate(-154.29deg);
+    }
+  }
+
+  &__petal--5 {
+    @include up(tab) {
+      transform: translate(-50%, -50%) rotate(205.71deg) translateY(-240px) rotate(-205.71deg);
+    }
+    @include up(pc) {
+      transform: translate(-50%, -50%) rotate(205.71deg) translateY(-280px) rotate(-205.71deg);
+    }
+  }
+
+  &__petal--6 {
+    @include up(tab) {
+      transform: translate(-50%, -50%) rotate(257.14deg) translateY(-240px) rotate(-257.14deg);
+    }
+    @include up(pc) {
+      transform: translate(-50%, -50%) rotate(257.14deg) translateY(-280px) rotate(-257.14deg);
+    }
+  }
+
+  &__petal--7 {
+    @include up(tab) {
+      transform: translate(-50%, -50%) rotate(308.57deg) translateY(-240px) rotate(-308.57deg);
+    }
+    @include up(pc) {
+      transform: translate(-50%, -50%) rotate(308.57deg) translateY(-280px) rotate(-308.57deg);
+    }
+  }
+}
+

@@ -1,0 +1,35 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+*.map
+css/style.css.map
+scss/style.css.map
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+
+# Claude Code local settings
+.claude/settings.local.json
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+npm-debug.log*
+
+# WordPress files (WordPress化時に追加)
+# wp-config.php
+# .htaccess
+# wp-content/uploads/
+# wp-content/cache/
+# wp-content/backup-db/
+# wp-content/advanced-cache.php
+# wp-content/wp-cache-config.php
+

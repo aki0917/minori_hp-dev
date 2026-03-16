@@ -1,0 +1,42 @@
+/* ========================================
+   Common Section Title
+   ======================================== */
+
+.c-sec-title {
+  font-size: 20px; 
+  font-weight: 700;
+  color: $color-text;
+  text-align: center;
+  letter-spacing: 0.02em;
+  margin-bottom: $spacing-large;
+
+  @include up(tab) {
+    font-size: 28px;
+    margin-bottom: $spacing-xl;
+  }
+
+  @include up(pc) {
+    font-size: 32px;
+  }
+
+  &::after {
+    content: '';
+    display: block;
+    width: 48px;
+    height: 2px;
+    margin: $spacing-small auto 0;
+    background: $color-secondary;
+    border-radius: 1px;
+
+    @include up(tab) {
+      width: 56px;
+      margin: $spacing-medium auto 0;
+    }
+
+    @include up(pc) {
+      width: 64px;
+    }
+  }
+}
+
+
